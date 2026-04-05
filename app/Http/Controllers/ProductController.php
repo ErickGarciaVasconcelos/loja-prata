@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
 {
     // Limita a busca a 6 produtos para a vitrine
-    $produtos = Produto::take(6)->get(); 
+    $produtos = Product::take(6)->get(); 
     
     return view('welcome', compact('produtos'));
 }
