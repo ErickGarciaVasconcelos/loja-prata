@@ -19,7 +19,7 @@ Route::get('/', function () {
 // Dashboard do Breeze (Protegido com No-Cache)
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', 'revalidate'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 // Perfil do usuário
 Route::middleware('auth')->group(function () {
