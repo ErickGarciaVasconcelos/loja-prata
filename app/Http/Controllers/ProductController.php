@@ -27,13 +27,13 @@ class ProductController extends Controller
      * Localização real: resources/views/paginas/welcome.blade.php
      */
     public function vitrine()
-    {
-        // Pega apenas 6 joias ativas para a vitrine inicial
-        $produtos = Product::with('images')->where('is_active', true)->take(6)->get(); 
-        
-        // CORREÇÃO: Aponta para a pasta PAGINAS
-        return view('paginas.welcome', compact('produtos'));
-    }
+{
+    // Pega todos os produtos para a página de vitrine
+    $produtos = Product::with('images')->where('is_active', true)->get();
+    
+    // Agora aponta para o seu arquivo que já tem o grid de joias
+    return view('paginas.welcome', compact('produtos')); 
+}
 
     /**
      * 3. CATÁLOGO COMPLETO (SITE PÚBLICO)

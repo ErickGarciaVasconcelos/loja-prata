@@ -5,15 +5,24 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuoteController;
 use Illuminate\Support\Facades\Route;
 
-// --- SITE PÚBLICO ---
+/*
+|--------------------------------------------------------------------------
+| SITE PÚBLICO (REIS DA PRATARIA)
+|--------------------------------------------------------------------------
+*/
 
-// Página inicial - Agora chama a função 'vitrine' do Controller
-Route::get('/', [ProductController::class, 'vitrine'])->name('home');
+// 1. A Nova Landing Page (Página de Impacto)
+Route::get('/', function () {
+    return view('paginas.landing'); 
+})->name('home');
 
-// Rota para o catálogo completo
+// 2. A Vitrine de Peças (Galeria para quem quer ver os produtos)
+Route::get('/vitrine', [ProductController::class, 'vitrine'])->name('produtos.vitrine');
+
+// 3. Catálogo Completo
 Route::get('/colecao', [ProductController::class, 'catalogo'])->name('produtos.catalogo');
 
-// Páginas institucionais (Caminhos ajustados para a pasta 'paginas')
+// Páginas Institucionais
 Route::get('/como-funciona', function () {
     return view('paginas.como-funciona');
 })->name('paginas.como-funciona');
@@ -27,7 +36,11 @@ Route::get('/politicas-de-troca', function () {
 })->name('paginas.trocas');
 
 
-// --- SISTEMA DE ORÇAMENTO (Carrinho) ---
+/*
+|--------------------------------------------------------------------------
+| SISTEMA DE ORÇAMENTO (WHATSAPP)
+|--------------------------------------------------------------------------
+*/
 Route::prefix('orcamento')->group(function () {
     Route::get('/', [QuoteController::class, 'index'])->name('orcamento.index');
     Route::post('/adicionar', [QuoteController::class, 'add'])->name('orcamento.add');
@@ -36,7 +49,11 @@ Route::prefix('orcamento')->group(function () {
 });
 
 
-// --- ÁREA ADMINISTRATIVA (Protegida) ---
+/*
+|--------------------------------------------------------------------------
+| ÁREA ADMINISTRATIVA (PROTEGIDA)
+|--------------------------------------------------------------------------
+*/
 Route::middleware(['auth', 'verified'])->group(function () {
     
     // Dashboard Geral do Breeze
@@ -54,16 +71,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/produtos/{id}', [ProductController::class, 'destroy'])->name('produtos.destroy');
     });
 
-    // Perfil do usuário
+    // Perfil do usuário (Breeze)
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// ROTA TEMPORÁRIA PARA CONSERTAR AS FOTOS
+
+/*
+|--------------------------------------------------------------------------
+| DIAGNÓSTICO E MANUTENÇÃO (TEMPORÁRIO)
+|--------------------------------------------------------------------------
+*/
 Route::get('/consertar-fotos', function () {
     try {
-        // 1. Tenta criar o link simbólico (a ponte)
         \Illuminate\Support\Facades\Artisan::call('storage:link');
         $mensagem = "Tentativa de criar link executada. ";
     } catch (\Exception $e) {
@@ -77,11 +98,9 @@ Route::get('/consertar-fotos', function () {
         'resultado' => $mensagem,
         'link_na_public_existe' => file_exists($publicStorage) ? 'SIM' : 'NÃO',
         'eh_um_atalho_valido' => is_link($publicStorage) ? 'SIM' : 'NÃO',
-        'caminho_da_vitrine' => $publicStorage,
-        'caminho_do_cofre' => $realStorage,
-        'arquivos_no_cofre' => scandir($realStorage . '/produtos') ?: 'Pasta vazia'
+        'arquivos_no_cofre' => is_dir($realStorage . '/produtos') ? scandir($realStorage . '/produtos') : 'Pasta produtos não encontrada'
     ];
 });
 
-// Autenticação do Breeze
+// Rotas de autenticação do Breeze
 require __DIR__.'/auth.php';
