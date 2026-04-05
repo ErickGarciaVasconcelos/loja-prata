@@ -69,7 +69,7 @@
         <div class="text-center mb-5">
             <h2 class="display-5">Especialidades</h2>
             <p class="text-muted">Soluções em prata para cada detalhe do seu serviço.</p>
-            <img src="talheres-prata.png" alt="Conjunto de talheres de prata de alta qualidade" class="img-hero" style="max-width: 100%; height: auto; max-height: 500px;">
+            <img src="talheres-prata.jpg" alt="Conjunto de talheres de prata de alta qualidade" class="img-hero" style="max-width: 100%; height: auto; max-height: 500px;">
         </div>
         <div class="row g-4">
             <div class="col-md-4">
