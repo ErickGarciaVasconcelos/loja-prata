@@ -15,7 +15,7 @@ class ProductController extends Controller
     // Limita a busca a 6 produtos para a vitrine
     $produtos = Product::take(6)->get(); 
     
-    return view('welcome', compact('produtos'));
+    return view('welcome', compact('product'));
 }
 
 // Adicione esta nova função para o catálogo completo
