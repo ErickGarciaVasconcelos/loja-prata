@@ -57,11 +57,11 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container">
-            <h1 class="display-3 mb-3">A Excelência de Servir.</h1>
+    <header class="hero" style="padding: 100px 0;"> <div class="container flex-container" style="display: flex; align-items: center; justify-content: space-between; gap: 50px; flex-wrap: wrap;"> <div class="text-content" style="flex: 1; min-width: 300px;"> <h1 class="display-3 mb-3">A Excelência de Servir.</h1>
             <p class="lead mb-5 text-uppercase" style="letter-spacing: 3px;">Artigos de Prata de Alta Performance para Restaurantes e Eventos</p>
             <a href="{{ route('produtos.vitrine') }}" class="btn-luxo">Ver Coleção Completa</a>
+            </div>
+            <div class="image-content" style="flex: 1; text-align: center; min-width: 300px;"> <img src="Gemini_Generated_Image_avzsmoavzsmoavzs.png" alt="Conjunto de talheres de prata de alta qualidade" class="img-hero" style="max-width: 100%; height: auto; max-height: 500px;"> </div>
         </div>
     </header>
 
