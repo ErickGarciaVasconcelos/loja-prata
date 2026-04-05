@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,7 +20,10 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
-        Paginator::useBootstrapFive();
+{
+    // Se estiver na Railway (produção), força o HTTPS
+    if (config('app.env') === 'production') {
+        URL::forceScheme('https');
     }
+}
 }
