@@ -10,32 +10,44 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
     /**
-     * 1. VITRINE DA HOME
-     * Localização real: resources/views/paginas/welcome.blade.php
+     * 1. PAINEL DE CONTROLE - LISTAGEM (GERENCIAR JOIAS)
+     * Localização real: resources/views/admin/produtos/index.blade.php
      */
     public function index()
     {
-        $produtos = Product::with('images')->take(6)->get(); 
+        // Pega todos os produtos para o administrador ver no painel
+        $produtos = Product::with('images')->paginate(15);
         
-        // AJUSTE: Adicionado 'paginas.' antes do nome da view
+        // CORREÇÃO: Agora aponta para a pasta ADMIN
+        return view('admin.produtos.index', compact('produtos'));
+    }
+
+    /**
+     * 2. VITRINE DA HOME (SITE PÚBLICO)
+     * Localização real: resources/views/paginas/welcome.blade.php
+     */
+    public function vitrine()
+    {
+        // Pega apenas 6 joias ativas para a vitrine inicial
+        $produtos = Product::with('images')->where('is_active', true)->take(6)->get(); 
+        
+        // CORREÇÃO: Aponta para a pasta PAGINAS
         return view('paginas.welcome', compact('produtos'));
     }
 
     /**
-     * 2. CATÁLOGO COMPLETO
+     * 3. CATÁLOGO COMPLETO (SITE PÚBLICO)
      * Localização real: resources/views/produtos/catalogo.blade.php
      */
     public function catalogo()
     {
-        $produtos = Product::with('images')->paginate(12);
+        $produtos = Product::with('images')->where('is_active', true)->paginate(12);
         
-        // AJUSTE: Confirmado o caminho 'produtos.catalogo'
         return view('produtos.catalogo', compact('produtos'));
     }
 
     /**
-     * 3. FORMULÁRIO DE CADASTRO
-     * Localização real: resources/views/admin/produtos/create.blade.php
+     * 4. FORMULÁRIO DE CADASTRO (PAINEL)
      */
     public function create()
     {
@@ -43,7 +55,7 @@ class ProductController extends Controller
     }
 
     /**
-     * 4. SALVAR NOVO PRODUTO
+     * 5. SALVAR NOVO PRODUTO (POST)
      */
     public function store(Request $request)
     {
@@ -74,48 +86,58 @@ class ProductController extends Controller
     }
 
     /**
-     * 5. FORMULÁRIO DE EDIÇÃO
-     * Localização real: resources/views/admin/produtos/edit.blade.php
+     * 6. FORMULÁRIO DE EDIÇÃO (PAINEL)
      */
     public function edit($id)
     {
         $produto = Product::with('images')->findOrFail($id);
-        
-        // AJUSTE: Ajustado para a sua pasta admin\produtos
         return view('admin.produtos.edit', compact('produto'));
     }
 
     /**
-     * 6. ATUALIZAR (Update)
+     * 7. ATUALIZAR (PUT/PATCH)
      */
     public function update(Request $request, $id)
     {
         $produto = Product::findOrFail($id);
-        $produto->update($request->all());
+        
+        $produto->update([
+            'sku' => $request->sku,
+            'name' => $request->name,
+            'plating_details' => $request->plating_details,
+            'price' => $request->price,
+        ]);
 
         if ($request->hasFile('foto')) {
+            // Limpa as imagens antigas para economizar espaço na Railway
             foreach ($produto->images as $oldImage) {
                 Storage::disk('public')->delete($oldImage->image_path);
                 $oldImage->delete();
             }
+
             $path = $request->file('foto')->store('produtos', 'public');
-            $produto->images()->create(['image_path' => $path, 'is_main' => true]);
+            $produto->images()->create([
+                'image_path' => $path,
+                'is_main' => true
+            ]);
         }
 
-        return redirect()->route('produtos.index')->with('sucesso', 'Joia atualizada!');
+        return redirect()->route('produtos.index')->with('sucesso', 'Joia atualizada com sucesso!');
     }
 
     /**
-     * 7. EXCLUIR
+     * 8. EXCLUIR (DELETE)
      */
     public function destroy($id)
     {
         $produto = Product::findOrFail($id);
+
         foreach ($produto->images as $image) {
             Storage::disk('public')->delete($image->image_path);
         }
+
         $produto->delete();
 
-        return redirect()->route('produtos.index')->with('sucesso', 'Removido!');
+        return redirect()->route('produtos.index')->with('sucesso', 'Produto removido!');
     }
 }
