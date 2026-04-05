@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\erick\Downloads\PROJETO 1\loja-prata\resources\views/paginas/trocas.blade.php ENDPATH**/ ?>
