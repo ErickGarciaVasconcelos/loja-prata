@@ -311,7 +311,7 @@
                 <div class="col-md-3 mb-4">
                     <h5 class="footer-title">Atendimento</h5>
                     <p class="footer-link mb-1"><i class="fas fa-envelope me-2"></i> contato@suamarca.com.br</p>
-                    <p class="footer-link mb-1"><i class="fas fa-phone me-2"></i> (11) 92002-4952</p>
+                    <p class="footer-link mb-1"><i class="fas fa-phone me-2"></i> (11) 93002-5104</p>
                     <p class="footer-link mt-3 small">
                         Segunda a Sexta: 09h às 18h<br>
                     </p>
