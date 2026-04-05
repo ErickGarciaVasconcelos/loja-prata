@@ -25,7 +25,17 @@
         .navbar { background: white; border-bottom: 1px solid #eee; sticky-top: 0; z-index: 1000; }
         
         /* SEÇÃO 2: HERO (IMPACTO) */
-        .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; display: flex; align-items: center; color: white; text-align: center; }
+        .hero { 
+            height: 90vh; 
+            /* Usei o link de exportação direta abaixo */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://drive.google.com/uc?export=view&id=1lrviEG11rPtodngPn-lwt_gfCp0pcGXp'); 
+            background-size: cover; 
+            background-position: center; 
+            display: flex; 
+            align-items: center; 
+            color: white; 
+            text-align: center; 
+        }
 
         /* SEÇÃO 3: CATEGORIAS */
         .cat-card { height: 400px; background-size: cover; background-position: center; display: flex; align-items: flex-end; padding: 30px; color: white; text-decoration: none; transition: 0.4s; position: relative; overflow: hidden; }
