@@ -60,5 +60,28 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// ROTA TEMPORÁRIA PARA CONSERTAR AS FOTOS
+Route::get('/consertar-fotos', function () {
+    try {
+        // 1. Tenta criar o link simbólico (a ponte)
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        $mensagem = "Tentativa de criar link executada. ";
+    } catch (\Exception $e) {
+        $mensagem = "Erro ao criar link: " . $e->getMessage();
+    }
+
+    $publicStorage = public_path('storage');
+    $realStorage = storage_path('app/public');
+
+    return [
+        'resultado' => $mensagem,
+        'link_na_public_existe' => file_exists($publicStorage) ? 'SIM' : 'NÃO',
+        'eh_um_atalho_valido' => is_link($publicStorage) ? 'SIM' : 'NÃO',
+        'caminho_da_vitrine' => $publicStorage,
+        'caminho_do_cofre' => $realStorage,
+        'arquivos_no_cofre' => scandir($realStorage . '/produtos') ?: 'Pasta vazia'
+    ];
+});
+
 // Autenticação do Breeze
 require __DIR__.'/auth.php';
