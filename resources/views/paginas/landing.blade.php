@@ -77,7 +77,7 @@
     <header class="hero">
         <div class="container">
             <h1 class="display-2 mb-3">A sua essência <br> moldada em prata.</h1>
-            <p class="lead mb-5 text-uppercase" style="letter-spacing: 4px;">Joias exclusivas de Prata 925</p>
+            <p class="lead mb-5 text-uppercase" style="letter-spacing: 4px;">Peças exclusivas de Prata 925</p>
             <a href="{{ route('produtos.vitrine') }}" class="btn-luxo">Conhecer Coleção</a>
         </div>
     </header>
@@ -87,22 +87,24 @@
             <h2 class="display-5">Nossas Coleções</h2>
         </div>
         <div class="row g-4">
-            <div class="col-md-4">
-                <a href="#" class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop');">
-                    <div class="cat-content"><h3>Colares</h3></div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop');">
-                    <div class="cat-content"><h3>Anéis</h3></div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1635767793021-952078b197c0?q=80&w=600&auto=format&fit=crop');">
-                    <div class="cat-content"><h3>Pulseiras</h3></div>
-                </a>
-            </div>
+        <div class="col-md-4">
+            <a href="#" class="cat-card" style="background-image: url('{{ asset('img/Gemini_Generated_Image_2puss52puss52pus.png') }}');">
+                <div class="cat-content"><h3>Prato Decorativo Redondo Rosé</h3></div>
+            </a>
         </div>
+
+        <div class="col-md-4">
+            <a href="#" class="cat-card" style="background-image: url('{{ asset('img/Gemini_Generated_Image_upyrfcupyrfcupyr.png') }}');">
+                <div class="cat-content"><h3>Bowl Redondo Prateado Frisado</h3></div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="#" class="cat-card" style="background-image: url('{{ asset('img/Gemini_Generated_Image_b2ospyb2ospyb2os.png') }}');">
+                <div class="cat-content"><h3>Rechaud Redondo Dourado com Tampa</h3></div>
+            </a>
+        </div>
+    </div>
     </section>
 
     <section class="features text-center">
@@ -116,7 +118,7 @@
                 <div class="col-md-4">
                     <i class="fa-solid fa-truck-fast fa-2x mb-3"></i>
                     <h4>Envio Seguro</h4>
-                    <p class="text-muted">Suas joias protegidas e seguradas até a sua porta.</p>
+                    <p class="text-muted">Suas peças protegidas e seguradas até a sua porta.</p>
                 </div>
                 <div class="col-md-4">
                     <i class="fa-solid fa-leaf fa-2x mb-3"></i>
@@ -128,13 +130,16 @@
     </section>
 
     <section class="banner-split">
-        <div class="banner-img" style="background-image: url('https://images.unsplash.com/photo-1602173574767-37ac01994b2a?q=80&w=1000&auto=format&fit=crop');"></div>
-        <div class="bg-white p-5 d-flex flex-column justify-content-center align-items-start" style="flex: 1;">
-            <h2 class="display-4 mb-4">Curadoria de Luxo</h2>
-            <p class="lead text-muted mb-4">Selecionamos cada peça manualmente para garantir que você receba não apenas uma joia, mas um símbolo de elegância.</p>
-            <a href="{{ route('produtos.vitrine') }}" class="btn-luxo">Ver Catálogo</a>
-        </div>
-    </section>
+    <div class="banner-img" style="background-image: url('{{ asset('img/Gemini_Generated_Image_shmnvsshmnvsshmn.png') }}');"></div>
+
+    <div class="bg-white p-5 d-flex flex-column justify-content-center align-items-start" style="flex: 1;">
+        <h2 class="display-4 mb-4">Curadoria de Luxo</h2>
+        <p class="lead text-muted mb-4">
+            Selecionamos cada peça manualmente para garantir que você receba não apenas uma joia, mas um símbolo de elegância.
+        </p>
+        <a href="{{ route('produtos.vitrine') }}" class="btn-luxo">Ver Catálogo</a>
+    </div>
+</section>
 
     <section class="quotes text-center container">
         <h2 class="mb-5">O que dizem nossas clientes</h2>
