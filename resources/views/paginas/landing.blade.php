@@ -60,11 +60,16 @@
         .newsletter { padding: 80px 0; border-top: 1px solid #eee; }
 
         /* SEÇÃO 10: FOOTER */
-        footer { background: #111; color: #888; padding: 60px 0; }
+        footer { background: #111; color: #888; padding: 60px 0 20px 0; }
+        .footer-title { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 1px; }
+        .footer-link { display: block; color: #888; text-decoration: none; margin-bottom: 10px; transition: color 0.3s; }
+        .footer-link:hover { color: var(--cor-champanhe); text-decoration: none; }
+        .social-icons a { color: #888; font-size: 1.2rem; margin-right: 15px; transition: color 0.3s; text-decoration: none; }
+        .social-icons a:hover { color: var(--cor-champanhe); }
+        .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.85rem; letter-spacing: 1px; color: #666; }
     </style>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg py-3 sticky-top">
         <div class="container d-flex justify-content-between">
             <a href="#" class="h4 m-0 font-luxo text-dark text-decoration-none" style="letter-spacing: 3px;">REIS DA PRATARIA</a>
@@ -73,7 +78,6 @@
             </div>
         </div>
     </nav>
-
     <header class="hero">
         <div class="container">
             <h1 class="display-2 mb-3">A sua essência <br> moldada em prata.</h1>
@@ -81,7 +85,6 @@
             <a href="{{ route('produtos.vitrine') }}" class="btn-luxo">Conhecer Coleção</a>
         </div>
     </header>
-
     <section class="container py-5 mt-5">
         <div class="text-center mb-5">
             <h2 class="display-5">Nossas Coleções</h2>
@@ -92,13 +95,11 @@
                 <div class="cat-content"><h3>Prato Decorativo Redondo Rosé</h3></div>
             </a>
         </div>
-
         <div class="col-md-4">
             <a href="#" class="cat-card" style="background-image: url('{{ asset('img/Gemini_Generated_Image_upyrfcupyrfcupyr.png') }}');">
                 <div class="cat-content"><h3>Bowl Redondo Prateado Frisado</h3></div>
             </a>
         </div>
-
         <div class="col-md-4">
             <a href="#" class="cat-card" style="background-image: url('{{ asset('img/Gemini_Generated_Image_b2ospyb2ospyb2os.png') }}');">
                 <div class="cat-content"><h3>Rechaud Redondo Dourado com Tampa</h3></div>
@@ -106,7 +107,6 @@
         </div>
     </div>
     </section>
-
     <section class="features text-center">
         <div class="container">
             <div class="row g-5">
@@ -128,10 +128,8 @@
             </div>
         </div>
     </section>
-
     <section class="banner-split">
     <div class="banner-img" style="background-image: url('{{ asset('img/Gemini_Generated_Image_shmnvsshmnvsshmn.png') }}');"></div>
-
     <div class="bg-white p-5 d-flex flex-column justify-content-center align-items-start" style="flex: 1;">
         <h2 class="display-4 mb-4">Curadoria de Luxo</h2>
         <p class="lead text-muted mb-4">
@@ -140,7 +138,6 @@
         <a href="{{ route('produtos.vitrine') }}" class="btn-luxo">Ver Catálogo</a>
     </div>
 </section>
-
     <section class="quotes text-center container">
         <h2 class="mb-5">O que dizem nossas clientes</h2>
         <div class="row">
@@ -158,7 +155,6 @@
             </div>
         </div>
     </section>
-
     <section class="process text-center">
         <div class="container">
             <h2 class="display-5 mb-5">Do Design ao Seu Coração</h2>
@@ -170,7 +166,6 @@
             </div>
         </div>
     </section>
-
     <section class="newsletter text-center">
         <div class="container">
             <h2 class="mb-4 font-luxo">Faça parte do Club Reis</h2>
@@ -181,13 +176,10 @@
             </form>
         </div>
     </section>
-
     <section class="py-5 bg-light text-center">
         <p class="text-uppercase mb-2" style="letter-spacing: 2px;">Siga-nos no Instagram</p>
         <h3 class="font-luxo">@reisdaprataria</h3>
     </section>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
     <footer>
         <div class="container">
             <div class="row">
@@ -202,19 +194,16 @@
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
                 <div class="col-md-2 mb-4">
                     <h5 class="footer-title">Menu</h5>
                     <a href="{{ url('/') }}" class="footer-link">Início</a>
                     <a href="{{ route('orcamento.index') }}" class="footer-link">Meus Orçamentos</a>
                 </div>
-
                 <div class="col-md-3 mb-4">
                     <h5 class="footer-title">Suporte</h5>
                     <a href="{{ route('paginas.como-funciona') }}" class="footer-link">Como funciona</a>
                     <a href="{{ route('paginas.cuidados') }}" class="footer-link">Cuidados com a Prata</a>
                 </div>
-
                 <div class="col-md-3 mb-4">
                     <h5 class="footer-title">Atendimento</h5>
                     <p class="footer-link mb-1"><i class="fas fa-envelope me-2"></i> contato@suamarca.com.br</p>
@@ -224,12 +213,10 @@
                     </p>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 &copy; {{ date('Y') }} REIS DA PRATARIA - TODOS OS DIREITOS RESERVADOS.
             </div>
         </div>
     </footer>
-
 </body>
 </html>
