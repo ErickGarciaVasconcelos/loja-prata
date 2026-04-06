@@ -187,16 +187,46 @@
         <h3 class="font-luxo">@reisdaprataria</h3>
     </section>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-white font-luxo mb-4">REIS DA PRATARIA</h3>
-                    <p>Elegância em Prata 925.</p>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">Reis da Prataria</h5>
+                    <p class="text-muted small" style="line-height: 1.8;">
+                        Especialistas em joias de prata 925 com design exclusivo e acabamento impecável. Nossa missão é eternizar momentos através do brilho das nossas peças.
+                    </p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <p>&copy; 2026 Todos os direitos reservados.</p>
+
+                <div class="col-md-2 mb-4">
+                    <h5 class="footer-title">Menu</h5>
+                    <a href="{{ url('/') }}" class="footer-link">Início</a>
+                    <a href="{{ route('orcamento.index') }}" class="footer-link">Meus Orçamentos</a>
                 </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Suporte</h5>
+                    <a href="{{ route('paginas.como-funciona') }}" class="footer-link">Como funciona</a>
+                    <a href="{{ route('paginas.cuidados') }}" class="footer-link">Cuidados com a Prata</a>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Atendimento</h5>
+                    <p class="footer-link mb-1"><i class="fas fa-envelope me-2"></i> contato@suamarca.com.br</p>
+                    <p class="footer-link mb-1"><i class="fas fa-phone me-2"></i> (11) 93002-5104</p>
+                    <p class="footer-link mt-3 small">
+                        Segunda a Sexta: 09h às 18h<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; {{ date('Y') }} REIS DA PRATARIA - TODOS OS DIREITOS RESERVADOS.
             </div>
         </div>
     </footer>
