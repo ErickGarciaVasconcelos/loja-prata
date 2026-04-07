@@ -60,13 +60,81 @@
         .newsletter { padding: 80px 0; border-top: 1px solid #eee; }
 
         /* SEÇÃO 10: FOOTER */
-        footer { background: #111; color: #888; padding: 60px 0 20px 0; }
-        .footer-title { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 1px; }
-        .footer-link { display: block; color: #888; text-decoration: none; margin-bottom: 10px; transition: color 0.3s; }
-        .footer-link:hover { color: var(--cor-champanhe); text-decoration: none; }
-        .social-icons a { color: #888; font-size: 1.2rem; margin-right: 15px; transition: color 0.3s; text-decoration: none; }
-        .social-icons a:hover { color: var(--cor-champanhe); }
-        .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.85rem; letter-spacing: 1px; color: #666; }
+        .foto-container {
+            width: 100%;
+            height: 320px; 
+            background-color: #ffffff; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px; 
+            flex-shrink: 0; 
+        }
+
+        .foto-produto {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; 
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+
+        .card-joia:hover .foto-produto {
+            transform: scale(1.05); 
+        }
+
+        footer {
+            background-color: var(--cor-secundaria); 
+            border-top: 3px solid var(--cor-champanhe); /* Fechamento elegante */
+            padding: 80px 0 30px 0;
+            margin-top: 100px;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: var(--cor-texto);
+        }
+
+        .footer-link {
+            display: block;
+            color: var(--cor-texto-mutado); 
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--cor-champanhe); 
+        }
+
+        .social-icons a {
+            color: var(--cor-texto);
+            font-size: 1.2rem;
+            margin-right: 20px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--cor-champanhe); 
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--cor-borda);
+            font-size: 0.75rem;
+            color: var(--cor-texto-mutado);
+            text-align: center;
+            letter-spacing: 1.5px; 
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
